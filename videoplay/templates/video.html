@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>视频播放页面</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- 导入 video.js框架 -->
+    <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'video_play.css' %}"></link>
+    <script>
+    var my_video = document.getElementById("my_video");
+    my_video.ontimeupdate = function() {
+    var currentTime = my_video.currentTime;
+    var duration = my_video.duration;
+    document.getElementById("current_time").innerHTML = Math.floor(currentTime);
+    document.getElementById('video_duration').innerHTML = Math.floor(duration);
+    }
+    </script>  
+</head>
+<body>
+    <div>
+    <!-- 视频播放 -->
+    <video id="my_video" controls preload="auto" width="100%" height="500px">
+      class="video-js vjs-default-skin vjs-big-play-centered">
+      <source src="{{ video_source.movie }}" type="video/mp4">
+    </video>
+    <p class="text-primary">当前播放时长/秒：<span id="current_time"></span></p>
+    <p class="text-primary">总时长/秒： <span id="video_duration"></span></p>
+    <hr />
+    </div>
+</body>
+</html>

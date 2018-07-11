@@ -1,0 +1,120 @@
+<html>
+<head>
+        <title>VideoPlay</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+      
+        <meta name="viewport" content="width=device-width, height=divice-height, inital-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <!-- 新 Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {% load staticfiles %}
+        <link type="text/css" rel="stylesheet" href="{% static 'home_page.css' %}">
+      </head>
+      <body>
+          <div class='container'>
+              <div id='user'>
+                    {% if error %}
+                        <p class="text-danger"><a href='/'>请登录</a></p>
+                    {% else %}
+                        <p class="text-primary">欢迎：{{ username }},</p>
+                    {% endif %}
+              </div>
+              <hr />
+              <div>
+                  <hr />
+                  <ul class="nav nav-tabs nav-justified" id="index">
+                      <li class="Unnatural"><a href="#tab0" data-toggle="tab">Unnatural</a></li>
+                  </ul>
+              </div>
+              <div class="tab-content" id="my-content">
+                    <div class="tab-pane fade in active" id="tab0">
+                            <ul class="figures_lists">
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_1.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_1.html" target="_blank" title="Unnatural">Unnatural 01</a>                                
+                                </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_2.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_2.html" target="_blank" title="Unnatural">Unnatural 02</a>                                
+                                </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_3.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_3.html" target="_blank" title="Unnatural">Unnatural 03</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_4.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_4.html" target="_blank" title="Unnatural">Unnatural 04</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_5.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_5.html" target="_blank" title="Unnatural">Unnatural 05</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_6.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_6.html" target="_blank" title="Unnatural">Unnatural 06</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_7.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_7.html" target="_blank" title="Unnatural">Unnatural 07</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_8.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_8.html" target="_blank" title="Unnatural">Unnatural 08</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_9.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_9.html" target="_blank" title="Unnatural">Unnatural 09</a>                                
+                                    </strong>
+                                </li>
+                                <li class="list_item" data-trigger-class="list_item_hover">
+                                    <a _boss="film" href="video_10.html" target="_blank" class="figure" tabindex="-1">
+                                        <img src="{% static 'images/Unnatural.jpg' %}" alt="Unnatural">
+                                    </a>
+                                    <strong class="figure_title">
+                                    <a _boss="film" href="video_10.html" target="_blank" title="Unnatural">Unnatural 10</a>                                
+                                    </strong>
+                                </li>
+                            </ul>
+                    </div>
+              </div>
+          </div>
+      </body>
+</html>

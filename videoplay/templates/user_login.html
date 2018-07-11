@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user_login.css' %}">
+    </head>
+    <body>
+        <div id='cont'>            
+            {% if userName_error %}
+                <p class='bg-danger text-danger'>UserName Not Exist</p>
+            {% endif %}
+            {% if userPassword_error %}
+                <p class='bg-danger text-danger'>Wrong Password</p>
+            {% endif %}
+            {% if userForm_error %}
+                <p class='bg-danger text-danger'>Invalid</p>
+            {% endif %}
+            <form role='form' method="post">
+                <div class="form-group">
+                    <label for="user">UserName:</label>
+                    <input type="text" name="username" class="form-control" id="user" placeholder="Enter the username" />
+                </div>
+                <div class="form-group">
+                    <label for="user">PassWord:</label>
+                    <input type="text" name="password" class="form-control" id="password" placeholder="Enter the password" />                   
+                </div>
+                <a href="/regist/">注册</a>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </body>
+
+</html>

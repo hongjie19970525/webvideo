@@ -11,9 +11,19 @@ from django.core.cache import cache
 from videoplay.models import Movie,User,UserComment,MoviePay
 from videoplay.forms import UserForm,UserCommentForm,MoviePayForm
 
+
+def checkhtml(request):
+    check=loader.get_template("face_camera1.html")
+    return HttpResponse(check.render())
+    
+def check(request):
+    data=request.POST.get
+    print(data)
+    return HttpResponse("1")
+
 def play(request,id):
     if request.method=='POST':
-        print request.POST
+        print(request.POST)
     #url = 'http://' + request.get_host() + request.get_full_path()
     video_id = int(id)
     video_source = Movie.objects.get(id = video_id)

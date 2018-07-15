@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+  <title>人脸登录</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    // GET VIDEO
+    navigator.getUserMedia = navigator.getUserMedia ||
+      navigator.webkitGetUserMedia ||
+      navigator.mozGetUserMedia ||
+      null;
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({
+          video: true,
+          audio: false
+        },
+        function(stream) {
+          var video = document.querySelector("video");
+          video.src = window.URL.createObjectURL(stream);
+          video.onloadedmetadata = function(e) {
+            video.play()
+          };
+        },
+        function(err) {
+          alert("Error: " + err.name);
+        }
+      );
+    } else {
+      alert("Video API don't supported")
+    }
+
+    var finalImage;
+    var canvas;
+
+    // GET IMAGE
+    function getFrame() {
+      canvas = document.createElement("canvas");
+      var ctx = canvas.getContext("2d");
+      var vidos = document.getElementById("myVideo");
+      vidos.pause();
+      canvas.width = vidos.videoWidth;
+      canvas.height = vidos.videoHeight;
+      ctx.drawImage(vidos, 0, 0);
+      vidos.play();
+
+      finalImage = canvas.toDataURL("image/jpeg");
+      var img = document.getElementById("result")
+      img.src = finalImage;
+      var sendButton = document.getElementById("sendButton");
+      sendButton.style.display = 'block';
+    }
+
+    // SEND IMAGE
+    function sendPhoto() {
+
+      var loading = document.getElementById("loading");
+      var loadgif = document.createElement("img");
+
+      finalImage = canvas.toDataURL("image/jpeg");
+      data = JSON.stringify({
+        image: document.getElementById("result").src
+      });
+      $.post('/fa/check', {
+        data: data
+      }, function(res) {
+        if (res.result == 'OK') {
+          location.reload();
+        } else {
+          alert("失败");
+        }
+      })
+    }
+  </script>
+</head>
+
+<body style="padding: 0; margin: 0; background-color: #FAFAFA;">
+  <div align="center">
+    <div align="center" id="loading">
+    </div>
+    <div align="center" style="width: 430px; padding: 10px; margin: 0; color: #090909; font-size:18px;">
+      人脸登录
+    </div>
+    <div align="center" style="width: 430px; height: 240px; padding: 10px; margin: 0;">
+      <video height="240" id="myVideo"></video>
+    </div>
+    <div align="center" style="width: 430px; padding: 10px; margin: 0;">
+      <button onclick="getFrame()" style="padding:5px 15px">开始拍照</button>
+    </div>
+    <div align="center" style="width: 430px; height: 240px; padding: 10px; margin: 0;">
+      <img height="240" id="result" src="">
+    </div>
+    <div align="center" style="width: 430px; padding: 10px; margin: 0;">
+      <button onclick="sendPhoto()" style="padding:5px 15px; display:none" id="sendButton">发送照片</button>
+    </div>
+  </div>
+</body>
+
+</html>
